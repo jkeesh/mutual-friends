@@ -85,13 +85,12 @@ if ($user) {
 	foreach($batches as $batch){
 		try{
 			$mutual = $facebook->api('/?batch='.json_encode($batch), 'POST');
-			print_r($mutual);
-			// foreach($mutual as $idx => $dict){
-			// 	$body = $dict['body'];
-			// 	$arr = json_decode($body);
-			// 	print_r($arr);
-			// 	//$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
-			// }
+			foreach($mutual as $idx => $dict){
+				$body = $dict['body'];
+				$arr = json_decode($body);
+				print_r($arr);
+				//$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
+			}
 
 		}catch(FacebookApiException $e){
 			print_r($e);
