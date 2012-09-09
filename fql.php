@@ -52,6 +52,9 @@ function cmp($a, $b){
 
 
 
+$LIST_MAX = 10;
+$BATCH_SIZE = 3;
+
 
 if ($user) {
   try {
@@ -60,7 +63,7 @@ if ($user) {
 	$friends = $facebook->api('/me/friends');
 	$friends = $friends['data'];
 
-	array_splice($friends, 30);
+	array_splice($friends, $LIST_MAX);
 
 	$queries = array();
 
@@ -78,7 +81,6 @@ if ($user) {
 	echo "<pre>";
 
 
-	$BATCH_SIZE = 10;
 	$batches = array_chunk($queries, $BATCH_SIZE);
 
 	$i = 0;
@@ -87,6 +89,7 @@ if ($user) {
 			$mutual = $facebook->api('/?batch='.json_encode($batch), 'POST');
 			foreach($mutual as $idx => $dict){
 				$body = $dict['body'];
+				print_r($body);
 				$arr = json_decode($body);
 				$num_mutual = count($arr);
 //				echo $num_mutual . "\n";
