@@ -65,7 +65,7 @@ if ($user) {
 		$fid = $dict['id'];
 		$mutual_friends = $facebook->api('/me/mutualfriends/'. $fid);
 		$num = count($mutual_friends['data']);
-		$dict['count'] = $num;
+		$friends[$idx]['count'] = $num;
 	}
 
 	print_r($friends);
