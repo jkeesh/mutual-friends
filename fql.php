@@ -60,7 +60,7 @@ if ($user) {
 	$next = $mutual_friends['pagin']['next'];
 
 	$num = count($mutual_friends['data']);
-	echo $num;
+	echo "mutal friends: ". $num;
 
 //	$xx = $facebook->api('/1141800361/mutualfriends?user=1207059&limit=5000&offset=5000&__after_id=214707');
 //	print_r($xx);
