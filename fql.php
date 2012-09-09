@@ -89,8 +89,8 @@ if ($user) {
 				$body = $dict['body'];
 				$arr = json_decode($body);
 				$num_mutual = count($arr);
-				echo $num_mutual . "\n";
-//				print_r($arr);
+//				echo $num_mutual . "\n";
+				print_r($arr);
 				//$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
 			}
 
