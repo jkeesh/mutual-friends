@@ -89,8 +89,9 @@ if ($user) {
 			$mutual = $facebook->api('/?batch='.json_encode($batch), 'POST');
 			foreach($mutual as $idx => $dict){
 				$body = $dict['body'];
-				print_r($body);
 				$arr = json_decode($body);
+				print_r($arr->data);
+
 				$num_mutual = count($arr->data);
 				echo $num_mutual . "\n";
 				//$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
