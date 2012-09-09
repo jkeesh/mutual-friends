@@ -61,14 +61,25 @@ if ($user) {
 
 	array_splice($friends, 30);
 
+	$queries = array();
+
 	foreach($friends as $idx => $dict){
 		$fid = $dict['id'];
-		$mutual_friends = $facebook->api('/me/mutualfriends/'. $fid);
-		$num = count($mutual_friends['data']);
-		$friends[$idx]['count'] = $num;
+		$relative_url = '/me/mutualfriends/'. $fid);
+
+		$cur = array('method'=>'GET', 'relative_url'=> $relative_url);	
+		$queries []= $cur;
+
+		//$mutual_friends = $facebook->api($relative_url);
+		//$num = count($mutual_friends['data']);
+		//$friends[$idx]['count'] = $num;
 	}
 
-	print_r($friends);
+
+
+	echo "<pre>";
+	print_r($queries);
+	echo "</pre>";
 
 	// print_r($friends);
 	// $mutual_friends = $facebook->api('/me/mutualfriends/678561285');
