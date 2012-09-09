@@ -57,12 +57,25 @@ if ($user) {
 	// Proceed knowing you have a logged in user who's authenticated.
 	$user_profile = $facebook->api('/me');
 	$friends = $facebook->api('/me/friends');
-	print_r($friends);
-	$mutual_friends = $facebook->api('/me/mutualfriends/678561285');
-	$next = $mutual_friends['pagin']['next'];
+	$friends = $friends['data'];
 
-	$num = count($mutual_friends['data']);
-	echo "mutal friends: ". $num;
+	array_splice($friends, 20);
+
+	foreach($friends as $idx => $dict){
+		$fid = $dict['id'];
+		$mutual_friends = $facebook->api('/me/mutualfriends/'. $fid);
+		$num = count($mutual_friends['data']);
+		$dict['count'] = $num;
+	}
+
+	print_r($friends);
+
+	// print_r($friends);
+	// $mutual_friends = $facebook->api('/me/mutualfriends/678561285');
+	// $next = $mutual_friends['pagin']['next'];
+
+	// $num = count($mutual_friends['data']);
+	// echo "mutal friends: ". $num;
 
 //	$xx = $facebook->api('/1141800361/mutualfriends?user=1207059&limit=5000&offset=5000&__after_id=214707');
 //	print_r($xx);
