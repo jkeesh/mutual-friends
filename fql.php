@@ -58,8 +58,8 @@ echo $item['name'] . " " . $item['count'] . "\n";
 }
 
 
-$LIST_MAX = 10;
-$BATCH_SIZE = 3;
+$LIST_MAX = 30;
+$BATCH_SIZE = 10;
 
 
 if ($user) {
