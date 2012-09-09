@@ -90,11 +90,9 @@ if ($user) {
 			foreach($mutual as $idx => $dict){
 				$body = $dict['body'];
 				$arr = json_decode($body);
-				print_r($arr->data);
-
 				$num_mutual = count($arr->data);
 				echo $num_mutual . "\n";
-				//$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
+				$friends[$i*$BATCH_SIZE + $idx]['count'] = $num_mutual;
 			}
 
 		}catch(FacebookApiException $e){
@@ -105,9 +103,11 @@ if ($user) {
 
 	}
 
+	print_r($friends);
+
 	echo "</pre>";
 
-	// print_r($friends);
+	print_r($friends);
 	// $mutual_friends = $facebook->api('/me/mutualfriends/678561285');
 	// $next = $mutual_friends['pagin']['next'];
 
