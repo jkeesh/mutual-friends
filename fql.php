@@ -65,7 +65,7 @@ if ($user) {
 
 	foreach($friends as $idx => $dict){
 		$fid = $dict['id'];
-		$relative_url = '/me/mutualfriends/'. $fid);
+		$relative_url = '/me/mutualfriends/'. $fid;
 
 		$cur = array('method'=>'GET', 'relative_url'=> $relative_url);	
 		$queries []= $cur;
