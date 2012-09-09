@@ -97,7 +97,7 @@ if ($user) {
 				$body = $dict['body'];
 				$arr = json_decode($body);
 				$num_mutual = count($arr->data);
-				echo $num_mutual . "\n";
+				//echo $num_mutual . "\n";
 				$friends[$i*$BATCH_SIZE + $idx]['count'] = $num_mutual;
 			}
 
@@ -109,9 +109,8 @@ if ($user) {
 
 	}
 
-	print_r($friends);
+	//print_r($friends);
 	uasort($friends, 'cmp');
-
 
 	echo "</pre>";
 
