@@ -59,7 +59,7 @@ if ($user) {
 	$friends = $facebook->api('/me/friends');
 	$friends = $friends['data'];
 
-	array_splice($friends, 3);
+	array_splice($friends, 30);
 
 	foreach($friends as $idx => $dict){
 		$fid = $dict['id'];
