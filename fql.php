@@ -100,8 +100,9 @@ if ($user) {
 
 	$BATCH_SIZE = 10;
 	$batches = array_chunk($queries, $BATCH_SIZE);
+	print_r($batches);
 
-	handle_batches($batches);
+//	handle_batches($batches);
 
 	print_r($queries);
 	echo "</pre>";
