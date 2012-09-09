@@ -1,5 +1,5 @@
 <h1>
-<a href="mutualfriends/mutual_count.php">mutual friends!</a>
+<a href="/mutualfriends/mutual_count.php">mutual friends!</a>
 </h1>
 
 <br/>
