@@ -1,7 +1,5 @@
 <?php
 
-$start = time();
-
 require 'secrets.php'; // facebook secrets
 require 'facebook-php-sdk/src/facebook.php';
 
@@ -59,7 +57,6 @@ echo $item['name'] . " " . $item['count'] . "\n";
 }
 
 
-
 $LIST_MAX = 10;
 $BATCH_SIZE = 3;
 
@@ -114,8 +111,6 @@ if ($user) {
 	//print_r($friends);
 	uasort($friends, 'cmp');
 
-
-	$print_r($_SERVER);
 
 	echo "</pre>";
 
