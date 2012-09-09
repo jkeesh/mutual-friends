@@ -23,6 +23,11 @@ if ($user) {
 
 	$friends = $facebook->api('/me/friends');
 
+	foreach($friends as $friend){
+		$mutual_friends = $facebook->api('/me/mutalfriends/' + $friend['id'])
+		print_r($mutual_friends);
+	}
+
 	print_r($friends);
 
   } catch (FacebookApiException $e) {
