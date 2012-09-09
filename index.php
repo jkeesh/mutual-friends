@@ -19,6 +19,12 @@ if ($user) {
   try {
     // Proceed knowing you have a logged in user who's authenticated.
     $user_profile = $facebook->api('/me');
+
+
+	$friends = $facebook->api('/me/friends');
+
+	print_r($friends);
+
   } catch (FacebookApiException $e) {
     error_log($e);
     $user = null;
@@ -31,6 +37,8 @@ if ($user) {
 } else {
   $loginUrl = $facebook->getLoginUrl();
 }
+
+
 
 
 
@@ -54,7 +62,7 @@ if ($user) {
     </style>
   </head>
   <body>
-    <h1>php-sdk</h1>
+    <h1>Most Mutual Friends</h1>
 
     <?php if ($user): ?>
       <a href="<?php echo $logoutUrl; ?>">Logout</a>
@@ -78,8 +86,5 @@ if ($user) {
       <strong><em>You are not Connected.</em></strong>
     <?php endif ?>
 
-    <h3>Public profile of Naitik</h3>
-    <img src="https://graph.facebook.com/naitik/picture">
-    <?php echo $naitik['name']; ?>
   </body>
 </html>
