@@ -79,7 +79,7 @@ if ($user) {
 	$response = get_mutual();
 	uasort($response, 'cmp_mutual');
 	//uasort($response, 'cmp');
-	print_r($response);
+	//print_r($response);
 
 
 	$timeTaken = time() - $_SERVER['REQUEST_TIME'];
@@ -148,7 +148,7 @@ if ($user) {
 <?php 
 
 foreach($response as $item){
-echo $item['name'] . " " . $item['count'] . "\n";
+echo $item['name'] . " " . $item['mutual_friend_count'] . "\n";
 }
 
 ?>
