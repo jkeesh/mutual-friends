@@ -1,5 +1,7 @@
 <?php
 
+$start = time();
+
 require 'secrets.php'; // facebook secrets
 require 'facebook-php-sdk/src/facebook.php';
 
@@ -111,6 +113,11 @@ if ($user) {
 
 	//print_r($friends);
 	uasort($friends, 'cmp');
+
+
+	$end = $time;
+
+	$print_r($_SERVER);
 
 	echo "</pre>";
 
