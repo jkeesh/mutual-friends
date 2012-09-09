@@ -104,10 +104,10 @@ if ($user) {
 	}
 
 	print_r($friends);
+	uasort($friends, 'cmp');
+
 
 	echo "</pre>";
-
-	print_r($friends);
 	// $mutual_friends = $facebook->api('/me/mutualfriends/678561285');
 	// $next = $mutual_friends['pagin']['next'];
 
@@ -212,9 +212,9 @@ if ($user) {
 
 <?php 
 
-// foreach($response as $item){
-// echo $item['name'] . " " . $item['count'] . "\n";
-// }
+foreach($friends as $item){
+echo $item['name'] . " " . $item['count'] . "\n";
+}
 
 ?>
 
