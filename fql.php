@@ -115,8 +115,6 @@ if ($user) {
 	uasort($friends, 'cmp');
 
 
-	$end = $time;
-
 	$print_r($_SERVER);
 
 	echo "</pre>";
