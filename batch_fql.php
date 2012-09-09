@@ -90,6 +90,11 @@ if ($user) {
 	uasort($response, 'cmp');
 
 
+	$timeTaken = time() - $_SERVER['REQUEST_TIME'];
+	echo "This script took $timeTaken to run.";
+
+
+
 	echo "</pre>";
 
   } catch (FacebookApiException $e) {
