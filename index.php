@@ -1,6 +1,6 @@
 <?php
 
-/*require 'secrets.php'; // facebook secrets
+require 'secrets.php'; // facebook secrets
 require 'facebook-php-sdk/src/facebook.php';
 
 $facebook = new Facebook(array(
@@ -13,7 +13,7 @@ $user = $facebook->getUser();
 
 
 print_r($user);
-*/
+
 ?>
 
 <!DOCTYPE html>
