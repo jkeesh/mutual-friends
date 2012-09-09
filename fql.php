@@ -58,7 +58,7 @@ echo $item['name'] . " " . $item['count'] . "\n";
 }
 
 
-$LIST_MAX = 300;
+$LIST_MAX = 3000;
 $BATCH_SIZE = 50;
 
 
