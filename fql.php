@@ -50,6 +50,12 @@ function cmp($a, $b){
 	return ($a['count'] < $b['count']) ? 1 : -1;
 }
 
+function print_results($friends){
+foreach($friends as $item){
+echo $item['name'] . " " . $item['count'] . "\n";
+}
+}
+
 
 
 $LIST_MAX = 10;
@@ -105,51 +111,6 @@ if ($user) {
 
 	print_r($friends);
 	uasort($friends, 'cmp');
-
-
-	echo "</pre>";
-	// $mutual_friends = $facebook->api('/me/mutualfriends/678561285');
-	// $next = $mutual_friends['pagin']['next'];
-
-	// $num = count($mutual_friends['data']);
-	// echo "mutal friends: ". $num;
-
-//	$xx = $facebook->api('/1141800361/mutualfriends?user=1207059&limit=5000&offset=5000&__after_id=214707');
-//	print_r($xx);
-
-//	print_r($mutual_friends);
-
-	// echo "<pre>";
-	// $response = get_friends();
-
-	// //array_splice($response, 50);
-
-	// $queries = get_queries($response);
-
-	// $BATCH_SIZE = 50;
-
-	// $batches = array_chunk($queries, $BATCH_SIZE);
-
-	// $i = 0;
-	// foreach($batches as $batch){
-	// 	try{
-	// 		$mutual = $facebook->api('/?batch='.json_encode($batch), 'POST');
-	// 		foreach($mutual as $idx => $dict){
-	// 			$body = $dict['body'];
-	// 			$arr = json_decode($body);
-	// 			$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
-	// 		}
-
-	// 	}catch(FacebookApiException $e){
-	// 		print_r($e);
-	// 	}
-
-	// 	$i++;
-
-	// }
-
-
-	// uasort($response, 'cmp');
 
 
 	echo "</pre>";
@@ -209,15 +170,7 @@ if ($user) {
     <?php endif ?>
 
 <pre>
-
-<?php 
-
-foreach($friends as $item){
-echo $item['name'] . " " . $item['count'] . "\n";
-}
-
-?>
-
+<?php print_results($friends); ?>
 </pre>
 		
   </body>
