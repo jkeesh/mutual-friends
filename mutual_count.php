@@ -62,6 +62,12 @@ function cmp($a, $b){
 	return ($a['count'] < $b['count']) ? 1 : -1;
 }
 
+// Comparison function based on mutual friend count
+function cmp_mutual($a, $b){
+	if($a['mutual_friend_count'] == $b['mutual_friend_count']) return 0;
+	return ($a['mutual_friend_count'] < $b['mutual_friend_count']) ? 1 : -1;
+}
+
 
 
 if ($user) {
@@ -71,8 +77,9 @@ if ($user) {
 
 	echo "<pre>";
 	$response = get_mutual();
+	uasort($response, 'cmp_mutual');
+	//uasort($response, 'cmp');
 	print_r($response);
-	uasort($response, 'cmp');
 
 
 	$timeTaken = time() - $_SERVER['REQUEST_TIME'];
