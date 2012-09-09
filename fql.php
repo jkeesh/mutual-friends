@@ -1,6 +1,5 @@
 <?php
 
-print_r($_SERVER);
 
 require 'secrets.php'; // facebook secrets
 require 'facebook-php-sdk/src/facebook.php';
@@ -112,6 +111,10 @@ if ($user) {
 
 	//print_r($friends);
 	uasort($friends, 'cmp');
+
+
+	$timeTaken = time() - $_SERVER['REQUEST_TIME'];
+	echo "This script took $timeTaken to run.";
 
 
 	echo "</pre>";
