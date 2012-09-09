@@ -1,5 +1,7 @@
 <?php
 
+print_r($_SERVER);
+
 require 'secrets.php'; // facebook secrets
 require 'facebook-php-sdk/src/facebook.php';
 
