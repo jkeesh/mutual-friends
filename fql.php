@@ -56,7 +56,7 @@ if ($user) {
   try {
 	// Proceed knowing you have a logged in user who's authenticated.
 	$user_profile = $facebook->api('/me');
-	$mutual_friends = $facebook->api('/me/mutualfriends/1207059');
+	$mutual_friends = $facebook->api('/me/mutualfriends/678561285');
 	$next = $mutual_friends['pagin']['next'];
 
 	$xx = $facebook->api('/1141800361/mutualfriends?user=1207059&limit=5000&offset=5000&__after_id=214707');
