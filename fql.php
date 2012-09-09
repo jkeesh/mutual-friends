@@ -51,26 +51,6 @@ function cmp($a, $b){
 }
 
 
-function handle_batches($batches){
-	$i = 0;
-	foreach($batches as $batch){
-		try{
-			$mutual = $facebook->api('/?batch='.json_encode($batch), 'POST');
-			foreach($mutual as $idx => $dict){
-				$body = $dict['body'];
-				$arr = json_decode($body);
-				print_r($arr);
-				//$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
-			}
-
-		}catch(FacebookApiException $e){
-			print_r($e);
-		}
-
-		$i++;
-
-	}
-}
 
 
 if ($user) {
@@ -100,11 +80,27 @@ if ($user) {
 
 	$BATCH_SIZE = 10;
 	$batches = array_chunk($queries, $BATCH_SIZE);
-	print_r($batches);
 
-//	handle_batches($batches);
+	$i = 0;
+	foreach($batches as $batch){
+		try{
+			$mutual = $facebook->api('/?batch='.json_encode($batch), 'POST');
+			print_r($mutual);
+			// foreach($mutual as $idx => $dict){
+			// 	$body = $dict['body'];
+			// 	$arr = json_decode($body);
+			// 	print_r($arr);
+			// 	//$response[$i*$BATCH_SIZE + $idx]['count'] = count($arr);
+			// }
 
-	print_r($queries);
+		}catch(FacebookApiException $e){
+			print_r($e);
+		}
+
+		$i++;
+
+	}
+
 	echo "</pre>";
 
 	// print_r($friends);
